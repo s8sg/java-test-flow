@@ -6,18 +6,18 @@ functions:
   date:
     lang: java8
     handler: ./date
-    image: date:latest
+    image: s8sg/date:latest
 
   date-python:
     lang: python
     handler: ./date-python
-    image: date-python:latest
+    image: s8sg/date-python:latest
 
-  java-flow:
+  date-flow:
     lang: faas-flow
-    handler: ./java-flow
-    image: java-flow:latest
+    handler: ./date-flow
+    image: s8sg/date-flow:latest
     environment:
        gateway: "gateway:8080"
-       workflow_name: "java-flow"
+       workflow_name: "date-flow"
        date-function: "date-python"
