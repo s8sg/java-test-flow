@@ -1,0 +1,23 @@
+provider:
+  name: faas
+  gateway: http://127.0.0.1:8080
+
+functions:
+  date:
+    lang: java8
+    handler: ./date
+    image: date:latest
+
+  date-python:
+    lang: python
+    handler: ./date-python
+    image: date-python:latest
+
+  java-flow:
+    lang: faas-flow
+    handler: ./java-flow
+    image: java-flow:latest
+    environment:
+       gateway: "gateway:8080"
+       workflow_name: "java-flow"
+       date-function: "date-python"
