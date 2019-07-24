@@ -18,6 +18,9 @@ func getDateFunc() string {
 func Define(flow *faasflow.Workflow, context *faasflow.Context) (err error) {
 	function := getDateFunc()
 	flow.SyncNode().Apply(function).Apply(function)
+	// flow.SyncNode().Apply("date-node").Apply("date-python").Apply("date-go").Apply("date-java")
+	// flow.SyncNode().Apply("date-python").Apply("date-node").Apply("date-go")
+	// flow.SyncNode().Apply("date-java").Apply("date-python").Apply("date-node").Apply("date-go")
 	return
 }
 

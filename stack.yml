@@ -3,10 +3,20 @@ provider:
   gateway: http://127.0.0.1:8080
 
 functions:
-  date:
+  date-java:
     lang: java8
-    handler: ./date
+    handler: ./date-java
     image: s8sg/date:latest
+
+  date-node:
+    lang: node
+    handler: ./date-node
+    image: date-node:latest
+
+  date-go:
+    lang: go
+    handler: ./date-go
+    image: date-go:latest
 
   date-python:
     lang: python
@@ -20,4 +30,15 @@ functions:
     environment:
        gateway: "gateway:8080"
        workflow_name: "date-flow"
-       date-function: "date-python"
+       date-function: "date-java"
+       # date-function: "date-node"
+       # date-function: "date-python"
+       # date-function: "date-go"
+
+  test-java:
+    lang: go
+    handler: ./test-java
+    image: test-java:latest
+    environment:
+       gateway: "gateway:8080"
+       date-function: "date-java"

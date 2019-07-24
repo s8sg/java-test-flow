@@ -10,7 +10,7 @@ public class Handler implements com.openfaas.model.IHandler {
 
     public IResponse Handle(IRequest req) {
         Response res = new Response();
-	res.setBody(new Date() + ": " + req.getBody());
-	return res;
+        res.setBody(new Date() + ": " + req.getBody());
+        return res;
     }
 }
